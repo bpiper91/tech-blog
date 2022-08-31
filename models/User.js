@@ -22,14 +22,6 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        email: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
-            validate: {
-                isEmail: true
-            }
-        },
         password: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -42,7 +34,7 @@ User.init(
         hooks: {
             // hash password before creating a new user
             async beforeCreate(newUserCreds) {
-                newUserCreds.password = await bcrypt.hash(newUserData.password, 10);
+                newUserCreds.password = await bcrypt.hash(newUserCreds.password, 10);
                 return newUserCreds;
             },
             // hash password before updating a user's password
