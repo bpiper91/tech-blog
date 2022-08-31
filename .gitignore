@@ -1,6 +1,7 @@
 .env
 .DS_Store
 plan.md
+db/seeds.sql
 
 # Logs
 logs
